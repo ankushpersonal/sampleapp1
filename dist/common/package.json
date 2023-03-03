@@ -1,0 +1,37 @@
+{
+  "name": "@ngx-grpc/common",
+  "description": "Angular gRPC framework: common package",
+  "author": "smnbbrv",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ngx-grpc/ngx-grpc"
+  },
+  "peerDependencies": {
+    "google-protobuf": "^3.10.0",
+    "rxjs": ">=6.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
+  "module": "fesm2015/ngx-grpc-common.mjs",
+  "es2020": "fesm2020/ngx-grpc-common.mjs",
+  "esm2020": "esm2020/ngx-grpc-common.mjs",
+  "fesm2020": "fesm2020/ngx-grpc-common.mjs",
+  "fesm2015": "fesm2015/ngx-grpc-common.mjs",
+  "typings": "ngx-grpc-common.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./ngx-grpc-common.d.ts",
+      "esm2020": "./esm2020/ngx-grpc-common.mjs",
+      "es2020": "./fesm2020/ngx-grpc-common.mjs",
+      "es2015": "./fesm2015/ngx-grpc-common.mjs",
+      "node": "./fesm2015/ngx-grpc-common.mjs",
+      "default": "./fesm2020/ngx-grpc-common.mjs"
+    }
+  },
+  "sideEffects": false
+}

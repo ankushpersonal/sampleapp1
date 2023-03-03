@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package villainpackage;
+
+message VillainById {
+  int32 id = 1;
+}
+
+message Villain1 {
+  int32 id = 1;
+  string name = 2;
+}
+
+message villainmessage {
+    string id = 1;
+}

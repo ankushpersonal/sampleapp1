@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "abc": "mkdir -p examples/protoFI && rm -rf examples/protoFI/* && $(pwd)/node_modules/.bin/grpc_tools_node_protoc --plugin=protoc-gen-ng=$(pwd)/dist/protoc-gen-ng/main.js --ng_out=config=src/ngx-grpc.conf.js:src/protos --proto_path=. $(find src/protos -iname '*.proto')",
+    "def": "mkdir -p examples/protoFI && rm -rf examples/protoFI/* && $(pwd)/node_modules/.bin/grpc_tools_node_protoc --plugin=protoc-gen-ng=$(pwd)/dist/protoc-gen-ng/main.js --ng_out=config=examples/basic-example/ngx-grpc.conf.js:examples/basic-example/src/proto --proto_path=. $(find kubota/autonomous/services/komms/app/v1 -iname '*.proto')"
   },
   "private": true,
   "dependencies": {
@@ -18,14 +20,24 @@
     "@angular/platform-browser": "^15.1.0",
     "@angular/platform-browser-dynamic": "^15.1.0",
     "@angular/router": "^15.1.0",
+    "@improbable-eng/grpc-web": "^0.15.0",
+    "@ngx-grpc/common": "^3.1.1",
+    "@ngx-grpc/core": "^3.1.1",
+    "@ngx-grpc/grpc-web-client": "^3.1.1",
+    "google-protobuf": "^3.21.2",
+    "grpc-tools": "^1.12.4",
+    "prettier": "^2.8.4",
     "rxjs": "~7.8.0",
+    "ts-protoc-gen": "^0.15.0",
     "tslib": "^2.3.0",
+    "winston": "^3.8.2",
     "zone.js": "~0.12.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.1.5",
     "@angular/cli": "~15.1.5",
     "@angular/compiler-cli": "^15.1.0",
+    "@types/google-protobuf": "^3.15.6",
     "@types/jasmine": "~4.3.0",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",

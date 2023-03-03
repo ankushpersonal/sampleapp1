@@ -1,0 +1,36 @@
+import { NgModule } from '@angular/core';
+import { GRPC_CLIENT_FACTORY } from '@ngx-grpc/core';
+import { ImprobableEngGrpcWebClientFactory } from './improbable-eng-grpc-web-client';
+import { IMPROBABLE_ENG_GRPC_WEB_CLIENT_DEFAULT_SETTINGS } from './tokens';
+import * as i0 from "@angular/core";
+export class ImprobableEngGrpcWebClientModule {
+    /**
+     * Create ImprobableEngGrpcWebClientModule for using in AppModule (application root module)
+     * You can provide the options here instead of injecting corresponding tokens separately
+     */
+    static forRoot(options) {
+        const providers = [{ provide: GRPC_CLIENT_FACTORY, useClass: ImprobableEngGrpcWebClientFactory }];
+        if (options?.settings) {
+            providers.push({ provide: IMPROBABLE_ENG_GRPC_WEB_CLIENT_DEFAULT_SETTINGS, useValue: options.settings });
+        }
+        return { ngModule: ImprobableEngGrpcWebClientModule, providers };
+    }
+    /**
+     * Create ImprobableEngGrpcWebClientModule for using in children modules (incl. lazy modules)
+     * You can provide the options here instead of injecting corresponding tokens separately
+     */
+    static forChild(options) {
+        const providers = [{ provide: GRPC_CLIENT_FACTORY, useClass: ImprobableEngGrpcWebClientFactory }];
+        if (options?.settings) {
+            providers.push({ provide: IMPROBABLE_ENG_GRPC_WEB_CLIENT_DEFAULT_SETTINGS, useValue: options.settings });
+        }
+        return { ngModule: ImprobableEngGrpcWebClientModule, providers };
+    }
+}
+ImprobableEngGrpcWebClientModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.2.3", ngImport: i0, type: ImprobableEngGrpcWebClientModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+ImprobableEngGrpcWebClientModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "13.2.3", ngImport: i0, type: ImprobableEngGrpcWebClientModule });
+ImprobableEngGrpcWebClientModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.2.3", ngImport: i0, type: ImprobableEngGrpcWebClientModule });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.2.3", ngImport: i0, type: ImprobableEngGrpcWebClientModule, decorators: [{
+            type: NgModule
+        }] });
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW1wcm9iYWJsZS1lbmctZ3JwYy13ZWItY2xpZW50Lm1vZHVsZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL3BhY2thZ2VzL2ltcHJvYmFibGUtZW5nLWdycGMtd2ViLWNsaWVudC9zcmMvbGliL2ltcHJvYmFibGUtZW5nLWdycGMtd2ViLWNsaWVudC5tb2R1bGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxFQUF1QixRQUFRLEVBQVksTUFBTSxlQUFlLENBQUM7QUFDeEUsT0FBTyxFQUFFLG1CQUFtQixFQUFFLE1BQU0sZ0JBQWdCLENBQUM7QUFDckQsT0FBTyxFQUFFLGlDQUFpQyxFQUFzQyxNQUFNLGtDQUFrQyxDQUFDO0FBQ3pILE9BQU8sRUFBRSwrQ0FBK0MsRUFBRSxNQUFNLFVBQVUsQ0FBQzs7QUFXM0UsTUFBTSxPQUFPLGdDQUFnQztJQUUzQzs7O09BR0c7SUFDSSxNQUFNLENBQUMsT0FBTyxDQUFDLE9BQStDO1FBQ25FLE1BQU0sU0FBUyxHQUFlLENBQUMsRUFBRSxPQUFPLEVBQUUsbUJBQW1CLEVBQUUsUUFBUSxFQUFFLGlDQUFpQyxFQUFFLENBQUMsQ0FBQztRQUU5RyxJQUFJLE9BQU8sRUFBRSxRQUFRLEVBQUU7WUFDckIsU0FBUyxDQUFDLElBQUksQ0FBQyxFQUFFLE9BQU8sRUFBRSwrQ0FBK0MsRUFBRSxRQUFRLEVBQUUsT0FBTyxDQUFDLFFBQVEsRUFBRSxDQUFDLENBQUM7U0FDMUc7UUFFRCxPQUFPLEVBQUUsUUFBUSxFQUFFLGdDQUFnQyxFQUFFLFNBQVMsRUFBRSxDQUFDO0lBQ25FLENBQUM7SUFFRDs7O09BR0c7SUFDSSxNQUFNLENBQUMsUUFBUSxDQUFDLE9BQWdEO1FBQ3JFLE1BQU0sU0FBUyxHQUFlLENBQUMsRUFBRSxPQUFPLEVBQUUsbUJBQW1CLEVBQUUsUUFBUSxFQUFFLGlDQUFpQyxFQUFFLENBQUMsQ0FBQztRQUU5RyxJQUFJLE9BQU8sRUFBRSxRQUFRLEVBQUU7WUFDckIsU0FBUyxDQUFDLElBQUksQ0FBQyxFQUFFLE9BQU8sRUFBRSwrQ0FBK0MsRUFBRSxRQUFRLEVBQUUsT0FBTyxDQUFDLFFBQVEsRUFBRSxDQUFDLENBQUM7U0FDMUc7UUFFRCxPQUFPLEVBQUUsUUFBUSxFQUFFLGdDQUFnQyxFQUFFLFNBQVMsRUFBRSxDQUFDO0lBQ25FLENBQUM7OzZIQTVCVSxnQ0FBZ0M7OEhBQWhDLGdDQUFnQzs4SEFBaEMsZ0NBQWdDOzJGQUFoQyxnQ0FBZ0M7a0JBRDVDLFFBQVEiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBNb2R1bGVXaXRoUHJvdmlkZXJzLCBOZ01vZHVsZSwgUHJvdmlkZXIgfSBmcm9tICdAYW5ndWxhci9jb3JlJztcbmltcG9ydCB7IEdSUENfQ0xJRU5UX0ZBQ1RPUlkgfSBmcm9tICdAbmd4LWdycGMvY29yZSc7XG5pbXBvcnQgeyBJbXByb2JhYmxlRW5nR3JwY1dlYkNsaWVudEZhY3RvcnksIEltcHJvYmFibGVFbmdHcnBjV2ViQ2xpZW50U2V0dGluZ3MgfSBmcm9tICcuL2ltcHJvYmFibGUtZW5nLWdycGMtd2ViLWNsaWVudCc7XG5pbXBvcnQgeyBJTVBST0JBQkxFX0VOR19HUlBDX1dFQl9DTElFTlRfREVGQVVMVF9TRVRUSU5HUyB9IGZyb20gJy4vdG9rZW5zJztcblxuZXhwb3J0IGludGVyZmFjZSBJbXByb2JhYmxlRW5nR3JwY1dlYkNsaWVudFJvb3RPcHRpb25zIHtcbiAgc2V0dGluZ3M/OiBJbXByb2JhYmxlRW5nR3JwY1dlYkNsaWVudFNldHRpbmdzO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIEltcHJvYmFibGVFbmdHcnBjV2ViQ2xpZW50Q2hpbGRPcHRpb25zIHtcbiAgc2V0dGluZ3M/OiBJbXByb2JhYmxlRW5nR3JwY1dlYkNsaWVudFNldHRpbmdzO1xufVxuXG5ATmdNb2R1bGUoKVxuZXhwb3J0IGNsYXNzIEltcHJvYmFibGVFbmdHcnBjV2ViQ2xpZW50TW9kdWxlIHtcblxuICAvKipcbiAgICogQ3JlYXRlIEltcHJvYmFibGVFbmdHcnBjV2ViQ2xpZW50TW9kdWxlIGZvciB1c2luZyBpbiBBcHBNb2R1bGUgKGFwcGxpY2F0aW9uIHJvb3QgbW9kdWxlKVxuICAgKiBZb3UgY2FuIHByb3ZpZGUgdGhlIG9wdGlvbnMgaGVyZSBpbnN0ZWFkIG9mIGluamVjdGluZyBjb3JyZXNwb25kaW5nIHRva2VucyBzZXBhcmF0ZWx5XG4gICAqL1xuICBwdWJsaWMgc3RhdGljIGZvclJvb3Qob3B0aW9ucz86IEltcHJvYmFibGVFbmdHcnBjV2ViQ2xpZW50Um9vdE9wdGlvbnMpOiBNb2R1bGVXaXRoUHJvdmlkZXJzPEltcHJvYmFibGVFbmdHcnBjV2ViQ2xpZW50TW9kdWxlPiB7XG4gICAgY29uc3QgcHJvdmlkZXJzOiBQcm92aWRlcltdID0gW3sgcHJvdmlkZTogR1JQQ19DTElFTlRfRkFDVE9SWSwgdXNlQ2xhc3M6IEltcHJvYmFibGVFbmdHcnBjV2ViQ2xpZW50RmFjdG9yeSB9XTtcblxuICAgIGlmIChvcHRpb25zPy5zZXR0aW5ncykge1xuICAgICAgcHJvdmlkZXJzLnB1c2goeyBwcm92aWRlOiBJTVBST0JBQkxFX0VOR19HUlBDX1dFQl9DTElFTlRfREVGQVVMVF9TRVRUSU5HUywgdXNlVmFsdWU6IG9wdGlvbnMuc2V0dGluZ3MgfSk7XG4gICAgfVxuXG4gICAgcmV0dXJuIHsgbmdNb2R1bGU6IEltcHJvYmFibGVFbmdHcnBjV2ViQ2xpZW50TW9kdWxlLCBwcm92aWRlcnMgfTtcbiAgfVxuXG4gIC8qKlxuICAgKiBDcmVhdGUgSW1wcm9iYWJsZUVuZ0dycGNXZWJDbGllbnRNb2R1bGUgZm9yIHVzaW5nIGluIGNoaWxkcmVuIG1vZHVsZXMgKGluY2wuIGxhenkgbW9kdWxlcylcbiAgICogWW91IGNhbiBwcm92aWRlIHRoZSBvcHRpb25zIGhlcmUgaW5zdGVhZCBvZiBpbmplY3RpbmcgY29ycmVzcG9uZGluZyB0b2tlbnMgc2VwYXJhdGVseVxuICAgKi9cbiAgcHVibGljIHN0YXRpYyBmb3JDaGlsZChvcHRpb25zPzogSW1wcm9iYWJsZUVuZ0dycGNXZWJDbGllbnRDaGlsZE9wdGlvbnMpOiBNb2R1bGVXaXRoUHJvdmlkZXJzPEltcHJvYmFibGVFbmdHcnBjV2ViQ2xpZW50TW9kdWxlPiB7XG4gICAgY29uc3QgcHJvdmlkZXJzOiBQcm92aWRlcltdID0gW3sgcHJvdmlkZTogR1JQQ19DTElFTlRfRkFDVE9SWSwgdXNlQ2xhc3M6IEltcHJvYmFibGVFbmdHcnBjV2ViQ2xpZW50RmFjdG9yeSB9XTtcblxuICAgIGlmIChvcHRpb25zPy5zZXR0aW5ncykge1xuICAgICAgcHJvdmlkZXJzLnB1c2goeyBwcm92aWRlOiBJTVBST0JBQkxFX0VOR19HUlBDX1dFQl9DTElFTlRfREVGQVVMVF9TRVRUSU5HUywgdXNlVmFsdWU6IG9wdGlvbnMuc2V0dGluZ3MgfSk7XG4gICAgfVxuXG4gICAgcmV0dXJuIHsgbmdNb2R1bGU6IEltcHJvYmFibGVFbmdHcnBjV2ViQ2xpZW50TW9kdWxlLCBwcm92aWRlcnMgfTtcbiAgfVxuXG59XG4iXX0=

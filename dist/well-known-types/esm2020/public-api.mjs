@@ -1,0 +1,14 @@
+/*
+ * Public API Surface of well-known-types
+ */
+export * from './lib/google/protobuf/any.pb';
+export * from './lib/google/protobuf/api.pb';
+export * from './lib/google/protobuf/duration.pb';
+export * from './lib/google/protobuf/empty.pb';
+export * from './lib/google/protobuf/field-mask.pb';
+export * from './lib/google/protobuf/source-context.pb';
+export * from './lib/google/protobuf/struct.pb';
+export * from './lib/google/protobuf/timestamp.pb';
+export * from './lib/google/protobuf/type.pb';
+export * from './lib/google/protobuf/wrappers.pb';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3BhY2thZ2VzL3dlbGwta25vd24tdHlwZXMvc3JjL3B1YmxpYy1hcGkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7O0dBRUc7QUFFSCxjQUFjLDhCQUE4QixDQUFDO0FBQzdDLGNBQWMsOEJBQThCLENBQUM7QUFDN0MsY0FBYyxtQ0FBbUMsQ0FBQztBQUNsRCxjQUFjLGdDQUFnQyxDQUFDO0FBQy9DLGNBQWMscUNBQXFDLENBQUM7QUFDcEQsY0FBYyx5Q0FBeUMsQ0FBQztBQUN4RCxjQUFjLGlDQUFpQyxDQUFDO0FBQ2hELGNBQWMsb0NBQW9DLENBQUM7QUFDbkQsY0FBYywrQkFBK0IsQ0FBQztBQUM5QyxjQUFjLG1DQUFtQyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLypcbiAqIFB1YmxpYyBBUEkgU3VyZmFjZSBvZiB3ZWxsLWtub3duLXR5cGVzXG4gKi9cblxuZXhwb3J0ICogZnJvbSAnLi9saWIvZ29vZ2xlL3Byb3RvYnVmL2FueS5wYic7XG5leHBvcnQgKiBmcm9tICcuL2xpYi9nb29nbGUvcHJvdG9idWYvYXBpLnBiJztcbmV4cG9ydCAqIGZyb20gJy4vbGliL2dvb2dsZS9wcm90b2J1Zi9kdXJhdGlvbi5wYic7XG5leHBvcnQgKiBmcm9tICcuL2xpYi9nb29nbGUvcHJvdG9idWYvZW1wdHkucGInO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvZ29vZ2xlL3Byb3RvYnVmL2ZpZWxkLW1hc2sucGInO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvZ29vZ2xlL3Byb3RvYnVmL3NvdXJjZS1jb250ZXh0LnBiJztcbmV4cG9ydCAqIGZyb20gJy4vbGliL2dvb2dsZS9wcm90b2J1Zi9zdHJ1Y3QucGInO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wYic7XG5leHBvcnQgKiBmcm9tICcuL2xpYi9nb29nbGUvcHJvdG9idWYvdHlwZS5wYic7XG5leHBvcnQgKiBmcm9tICcuL2xpYi9nb29nbGUvcHJvdG9idWYvd3JhcHBlcnMucGInO1xuXG4iXX0=

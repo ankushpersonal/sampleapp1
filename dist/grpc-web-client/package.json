@@ -1,0 +1,35 @@
+{
+  "name": "@ngx-grpc/grpc-web-client",
+  "author": "smnbbrv",
+  "license": "MIT",
+  "peerDependencies": {
+    "@ngx-grpc/common": ">=0.2.0",
+    "@ngx-grpc/core": ">=0.2.0",
+    "@angular/core": ">=12.0.0",
+    "rxjs": ">=6.0.0",
+    "grpc-web": "^1.2.1"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
+  "module": "fesm2015/ngx-grpc-grpc-web-client.mjs",
+  "es2020": "fesm2020/ngx-grpc-grpc-web-client.mjs",
+  "esm2020": "esm2020/ngx-grpc-grpc-web-client.mjs",
+  "fesm2020": "fesm2020/ngx-grpc-grpc-web-client.mjs",
+  "fesm2015": "fesm2015/ngx-grpc-grpc-web-client.mjs",
+  "typings": "ngx-grpc-grpc-web-client.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./ngx-grpc-grpc-web-client.d.ts",
+      "esm2020": "./esm2020/ngx-grpc-grpc-web-client.mjs",
+      "es2020": "./fesm2020/ngx-grpc-grpc-web-client.mjs",
+      "es2015": "./fesm2015/ngx-grpc-grpc-web-client.mjs",
+      "node": "./fesm2015/ngx-grpc-grpc-web-client.mjs",
+      "default": "./fesm2020/ngx-grpc-grpc-web-client.mjs"
+    }
+  },
+  "sideEffects": false
+}

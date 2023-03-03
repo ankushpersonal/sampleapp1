@@ -1,0 +1,37 @@
+{
+  "name": "@ngx-grpc/worker",
+  "description": "Angular gRPC framework: worker package",
+  "author": "smnbbrv",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ngx-grpc/ngx-grpc"
+  },
+  "peerDependencies": {
+    "@ngx-grpc/common": ">=0.2.0",
+    "grpc-web": "^1.2.1"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
+  "module": "fesm2015/ngx-grpc-worker.mjs",
+  "es2020": "fesm2020/ngx-grpc-worker.mjs",
+  "esm2020": "esm2020/ngx-grpc-worker.mjs",
+  "fesm2020": "fesm2020/ngx-grpc-worker.mjs",
+  "fesm2015": "fesm2015/ngx-grpc-worker.mjs",
+  "typings": "ngx-grpc-worker.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./ngx-grpc-worker.d.ts",
+      "esm2020": "./esm2020/ngx-grpc-worker.mjs",
+      "es2020": "./fesm2020/ngx-grpc-worker.mjs",
+      "es2015": "./fesm2015/ngx-grpc-worker.mjs",
+      "node": "./fesm2015/ngx-grpc-worker.mjs",
+      "default": "./fesm2020/ngx-grpc-worker.mjs"
+    }
+  },
+  "sideEffects": false
+}

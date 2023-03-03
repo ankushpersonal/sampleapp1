@@ -1,0 +1,16 @@
+/*
+  DOM-free chunk
+
+  IMPORTANT: all dependencies must be DOM-references-free because it might breaks Worker environment; in other words
+    - do not import to @angular/* and other DOM-related packages in any level of import
+    - do not use Window / Document etc
+*/
+export * from './lib/grpc-client';
+export * from './lib/grpc-event';
+export * from './lib/grpc-message';
+export * from './lib/grpc-message-class';
+export * from './lib/grpc-message-pool';
+export * from './lib/grpc-metadata';
+export * from './lib/recursive-partial';
+export * from './lib/utils';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3BhY2thZ2VzL2NvbW1vbi9zcmMvcHVibGljLWFwaS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7O0VBTUU7QUFFRixjQUFjLG1CQUFtQixDQUFDO0FBQ2xDLGNBQWMsa0JBQWtCLENBQUM7QUFDakMsY0FBYyxvQkFBb0IsQ0FBQztBQUNuQyxjQUFjLDBCQUEwQixDQUFDO0FBQ3pDLGNBQWMseUJBQXlCLENBQUM7QUFDeEMsY0FBYyxxQkFBcUIsQ0FBQztBQUNwQyxjQUFjLHlCQUF5QixDQUFDO0FBQ3hDLGNBQWMsYUFBYSxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLypcbiAgRE9NLWZyZWUgY2h1bmtcblxuICBJTVBPUlRBTlQ6IGFsbCBkZXBlbmRlbmNpZXMgbXVzdCBiZSBET00tcmVmZXJlbmNlcy1mcmVlIGJlY2F1c2UgaXQgbWlnaHQgYnJlYWtzIFdvcmtlciBlbnZpcm9ubWVudDsgaW4gb3RoZXIgd29yZHNcbiAgICAtIGRvIG5vdCBpbXBvcnQgdG8gQGFuZ3VsYXIvKiBhbmQgb3RoZXIgRE9NLXJlbGF0ZWQgcGFja2FnZXMgaW4gYW55IGxldmVsIG9mIGltcG9ydFxuICAgIC0gZG8gbm90IHVzZSBXaW5kb3cgLyBEb2N1bWVudCBldGNcbiovXG5cbmV4cG9ydCAqIGZyb20gJy4vbGliL2dycGMtY2xpZW50JztcbmV4cG9ydCAqIGZyb20gJy4vbGliL2dycGMtZXZlbnQnO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvZ3JwYy1tZXNzYWdlJztcbmV4cG9ydCAqIGZyb20gJy4vbGliL2dycGMtbWVzc2FnZS1jbGFzcyc7XG5leHBvcnQgKiBmcm9tICcuL2xpYi9ncnBjLW1lc3NhZ2UtcG9vbCc7XG5leHBvcnQgKiBmcm9tICcuL2xpYi9ncnBjLW1ldGFkYXRhJztcbmV4cG9ydCAqIGZyb20gJy4vbGliL3JlY3Vyc2l2ZS1wYXJ0aWFsJztcbmV4cG9ydCAqIGZyb20gJy4vbGliL3V0aWxzJztcblxuIl19

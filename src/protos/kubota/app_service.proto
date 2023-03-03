@@ -1,0 +1,374 @@
+/*
+ * Project: Kubota Autonomous Equipment
+ * Date:    February 2021
+ * Author:  Marc Tibout (MTConseils)
+ *
+ * Copyright: (C) 2021 Kubota Innovation Center North America. All Rights Reserved.
+ *
+ */
+
+// KOMMS App services
+
+syntax = "proto3";
+
+// import "kubota/autonomous/messages/common/v1/item_id_name.proto";
+// import "kubota/autonomous/messages/common/v1/komms.proto";
+// import "kubota/autonomous/messages/common/v1/operation.proto";
+// import "kubota/autonomous/messages/common/v1/pagination.proto";
+// import "kubota/autonomous/messages/common/v1/spatial.proto";
+// import "kubota/autonomous/messages/common/v1/timing.proto";
+// import "kubota/autonomous/messages/machine/v2/machine.proto";
+// import "kubota/autonomous/messages/mission/v1/mission.proto";
+// import "kubota/autonomous/messages/site/v1/site.proto";
+// import "kubota/autonomous/messages/work_plan/v1/work_plan.proto";
+
+package kubota.autonomous.services.komms.app.v1;
+
+/*
+ * Mobile App -> Cloud KOMMS service
+ */
+service AppService {
+  // Client authentication
+  rpc Authenticate ( AppServiceAuthenticateRequest ) returns ( AppServiceAuthenticateResponse ) {}
+  // Client Authentication refresh
+  rpc AuthenticateRefresh ( AppServiceAuthenticateRefreshRequest ) returns ( AppServiceAuthenticateRefreshResponse ) {}
+
+  // // CRUD operations
+  // // Create an item
+  // rpc Create ( AppServiceCreateRequest ) returns ( AppServiceCreateResponse ) {}
+  // // Read an item
+  // rpc Read ( AppServiceReadRequest ) returns ( AppServiceReadResponse ) {}
+  // // Read a set of items of the same type
+  // rpc ReadItems ( AppServiceReadItemsRequest ) returns ( stream AppServiceReadItemsResponse ) {}
+  // // Update an item
+  // rpc Update ( AppServiceUpdateRequest ) returns ( AppServiceUpdateResponse ) {}
+  // // Delete an item
+  // rpc Delete ( AppServiceDeleteRequest ) returns ( AppServiceDeleteResponse ) {}
+
+  // // List operation (provides item id and name)
+  // rpc ListId ( AppServiceListIdRequest ) returns ( AppServiceListIdResponse ) {}
+  // // List operation (provides item records)
+  // rpc List ( AppServiceListRequest ) returns ( AppServiceListResponse ) {}
+
+  // // Subscribe to a set of Machine and Mission statuses
+  // // Client may request a change in subscription by sending a new request on the same call
+  // // Server keeps streaming subscribed status until the client disconnects
+  // // It is expected to only make one Subscribe call per client
+  // rpc Subscribe ( stream AppServiceSubscribeRequest ) returns ( stream AppServiceSubscribeResponse ) {}
+
+  // // Perform an operation on a machine (Machine Debug mode)
+  // rpc PerformOperation ( AppServicePerformOperationRequest ) returns ( AppServicePerformOperationResponse ) {}
+
+  // // Compute round trip time
+  // rpc Rtt ( AppServiceRttRequest ) returns ( AppServiceRttResponse ) {}
+
+  // // Request Path Planing Services to generate a Path Plan in a Work Plan
+  // rpc PerformPathPlanning ( AppServicePerformPathPlanningRequest ) returns ( AppServicePerformPathPlanningResponse ) {}
+
+  // // Request Path Planing Services to layout the swaths over a zone
+  // rpc PerformSwathLayout ( AppServicePerformSwathLayoutRequest ) returns ( AppServicePerformSwathLayoutResponse ) {}
+
+  // // Request a mission to be reset for a machine
+  // rpc MissionReset ( AppServiceMissionResetRequest ) returns ( AppServiceMissionResetResponse ) {}
+
+  // // Send a mission notification to all the online mission participants
+  // rpc MissionNotify ( AppServiceMissionNotifyRequest ) returns ( AppServiceMissionNotifyResponse ) {}
+}
+
+// Authenticate() request: App User credentials
+message AppServiceAuthenticateRequest {
+  string username = 1;       // User login name
+  string password = 2;       // User password
+}
+
+message Version {
+  string server = 1;
+  string api = 2;
+}
+
+// Authenticate() response: Token to be used in all rpc metadata (but Authenticate())
+message AppServiceAuthenticateResponse {
+  string token = 1;          // The token to pass in metadata of every RPC (but Authenticate())
+  uint32 expire = 2;         // Token validity time in seconds
+  string role = 3;           // User role
+  Version version = 4;       // Server and API versions
+}
+
+// AuthenticateRefresh() request:
+message AppServiceAuthenticateRefreshRequest {
+}
+
+// AuthenticateRefresh() response: Token to be used in all rpc metadata (but Authenticate())
+message AppServiceAuthenticateRefreshResponse {
+  string token = 1;                     // The token to pass in metadata of every RPC (but Authenticate())
+  uint32 expire = 2;                    // Token validity time in seconds
+  Version version = 4;                  // Server and API versions
+}
+
+// CRUD and List Operations on items
+
+
+// Create() request: Item to Create (id not set)
+// message AppServiceCreateRequest {
+//   kubota.autonomous.messages.common.v1.Item item = 1; // Item to create
+// }
+// // Create() response:Created Item id
+// message AppServiceCreateResponse {
+//   string item_id = 1; // Created item id
+// }
+
+// // Read() request: Item to Read
+// message AppServiceReadRequest {
+//   string item_id = 1;  // Id of item to read
+//   kubota.autonomous.messages.common.v1.ItemType item_type = 2; // Item type
+// }
+// // Read() response: Read item
+// message AppServiceReadResponse {
+//   kubota.autonomous.messages.common.v1.Item item = 1; // Read item
+// }
+
+// // ReadItems() request: item type and list of item Ids
+// message AppServiceReadItemsRequest {
+//   repeated string item_ids = 1;  // Id of items to read
+//   kubota.autonomous.messages.common.v1.ItemType item_type = 2; // Item type
+// }
+// // ReadItems() response: Stream of items
+// message AppServiceReadItemsResponse {
+//   kubota.autonomous.messages.common.v1.Item item = 1; // Read item
+// }
+
+// // Update() request: Item to Update (id set)
+// message AppServiceUpdateRequest {
+//   kubota.autonomous.messages.common.v1.Item item = 1; // Item to update
+// }
+// // Update() response:
+// message AppServiceUpdateResponse {
+// }
+
+// // Delete() request: Item to Delete
+// message AppServiceDeleteRequest {
+//   string item_id = 1;   // Id of the item to delete
+//   kubota.autonomous.messages.common.v1.ItemType  item_type = 2; // Item type
+// }
+// // Delete() response:
+// message AppServiceDeleteResponse {
+// }
+
+// // ListId() request: List items Ids and names
+// message AppServiceListIdRequest {
+//   kubota.autonomous.messages.common.v1.ItemType item_type = 1;   // Item type to list
+//   kubota.autonomous.messages.common.v1.Pagination pagination = 2; // Pagination parameters
+//   /*
+//       filter: JSON encoded string for filtering items
+//               The string must be either an object, in which case all provided {key: value} conditions must be met to
+//               include the item, or an array of objects, in which case at least one set of {key: value} conditions must
+//               be met to include the item.
+//               Object: AND condition between {key: value} pairs
+//               Array: OR condition between sets of {key: value} pairs
+//               key:
+//                - must be a string property of the item (for example: "name", "description", "machine_model", ...)
+//               value:
+//                - is either an exact string value of the property e.g. {"machine_model": "Z724XKW-48"}, or
+//                - is prefixed by a comparison operator ('==', '<', '<=', '>' or '>=') in which case a comparison with the
+//                  rest of the string value is made to match items. e.g. {"machine_model": ">=Z724XKW"} , or
+//                - contains '%' or '_' characters. '%' is meant to be any string at the position of the '%' character
+//                  (e.g. {"machine_model": "Z%-48"} will match all machine models starting with "Z" and ending in "-48"),
+//                  and '_' means any character at the position of the '_' character. e.g. {"machine_model": "Z______-48"}.
+//                  '%' and '_' can be used together and repeated. The value shall not be prefixed with a comparison
+//                  operator when it contains '%' and/or '_' characters, or
+//                - is the JSON null value, in which case the item is selected if the property denoted by key is not set
+//                  e.g. {"machine_model": null}
+
+//                Other examples:
+//                - {"machine_model": "Z724XKW-48", "machine_type": "mower"}: item must have the property "machine_model"
+//                  set to "Z724XKW-48" AND "machine_type" set to "mower"
+//                - [{"machine_model": "Z724XKW-48"}, {"machine_model": "Z724XKW-24"}]: item must have the property
+//                  "machine_model" set to "Z724XKW-48" OR to "Z724XKW-24"
+//    */
+//   string filter = 3; // item filter: see above
+// }
+
+// // List() Response: List items Ids and names
+// message AppServiceListIdResponse {
+//   repeated kubota.autonomous.messages.common.v1.ItemIdName item_ids = 1; // n items with n <= request.pagination.max_size (no more data if n < request.size)
+// }
+
+// // List request: item type to list
+// message AppServiceListRequest {
+//   kubota.autonomous.messages.common.v1.ItemType item_type = 1;   // Item type to list
+//   kubota.autonomous.messages.common.v1.Pagination pagination = 2; // Pagination parameters
+//   string filter = 3; // item filter: see AppServiceListIdRequest.filter
+//   // Future: Local local = 4; // Localization parameters (language, country, units conversion)
+// }
+// // List() response: items
+// message AppServiceListResponse {
+//   repeated kubota.autonomous.messages.common.v1.Item items = 1; // n items with n <= request.pagination.max_size (no more data if n < request.size)
+// }
+
+// // List of possible Stream types
+// enum StreamType {
+//   STREAM_TYPE_UNSPECIFIED = 0;
+//   STREAM_TYPE_MACHINE_STATUS = 1;     // Machine Status
+//   STREAM_TYPE_MACHINE_TLM = 2;        // Machine telemetry and telematics
+//   STREAM_TYPE_MACHINE_LOCATION = 3;   // Machine Location
+//   STREAM_TYPE_MACHINE_ALL = 5;        // Stream MachineStatus, MachineTlm and MachineLocation together
+//   STREAM_TYPE_MISSION_STATUS = 4;     // Mission Status
+// }
+
+// // Define a subscription to a Machine or Mission status stream
+// message Subscription {
+//   string item_id = 1;            // Id of the item to stream (machine Id, mission Id, ...)
+//   StreamType stream_type = 2;    // Stream Type selector
+// }
+// // Subscribe() request: list of subscription
+// message AppServiceSubscribeRequest {
+//   repeated Subscription subscriptions = 1;
+// }
+
+// message MachineStatusAll {
+//   kubota.autonomous.messages.common.v1.KommsGtwStatus komms_gtw_status = 1;                                           // Gateway status
+//   kubota.autonomous.messages.machine.v2.MachineStatus machine_status = 2;        // Machine status
+//   kubota.autonomous.messages.machine.v2.MachineTlm machine_tlm = 3;              // Machine telemetry/telematics
+//   kubota.autonomous.messages.machine.v2.MachineLocation machine_location = 4;    // Machine Location
+// }
+
+// // Subscribe() response: status (according to item_id and stream_type of the request)
+// message AppServiceSubscribeResponse {
+//   string item_id = 1;         // Id of the streamed item copied from request
+//   StreamType stream_type = 2; // Stream type selector copied from request
+//   uint32 sequence = 3; // Status sequence number
+//   string timestamp = 4; // Status timestamp
+//   oneof stream {
+//     kubota.autonomous.messages.machine.v2.MachineStatus machine_status = 10; // Machine Status
+//     kubota.autonomous.messages.machine.v2.MachineTlm machine_tlm = 11; // Machine Telemetry and Telematics
+//     kubota.autonomous.messages.machine.v2.MachineLocation machine_location = 12; // Machine Location
+//     kubota.autonomous.messages.mission.v1.AppMissionStatus mission_status = 13; // Mission aggregated Status
+//     MachineStatusAll machine_all = 14; // Aggregated machine status (gateway, machine status, tlm and location)
+//   }
+// }
+
+// // PerformOperation() request: Perform an operation on a machine
+// message AppServicePerformOperationRequest {
+//   string machine_id = 1;
+//   kubota.autonomous.messages.common.v1.Operation operation = 2;
+// }
+
+// // PerformOperation() response: provide state of the requested operation (further status provided in Machine/Mission status stream)
+// message AppServicePerformOperationResponse {
+//   kubota.autonomous.messages.common.v1.OperationState state = 1;
+// }
+
+// // rtt() request
+// message AppServiceRttRequest {
+//   string gateway_id = 1; // Gateway ID for full path RTT, empty for app -> komms-server-app
+//   repeated kubota.autonomous.messages.common.v1.RttEntity entities = 2;
+// }
+
+// // rtt() response
+// message AppServiceRttResponse {
+//   repeated kubota.autonomous.messages.common.v1.RttEntity entities = 2;
+// }
+
+// // PerformPathPlanning() request: Request the server to generate a Path Plan
+// message AppServicePerformPathPlanningRequest {
+//   kubota.autonomous.messages.work_plan.v1.WorkPlan work_plan = 1;
+// }
+
+// // Status for each of the work plan items of the work plan
+// enum PPSState {
+//   PPS_STATE_UNSPECIFIED = 0;
+//   // OK States
+//   PPS_STATE_OK = 1;  // PPS performed the request successfully
+//   PPS_STATE_SKIPPED = 2; // No PPS required
+//   // Failed States
+//   PPS_STATE_FAILED = 10; // PPS failed, see content of error for more details
+//   PPS_STATE_TIMEOUT = 11; // PPS Failed with timeout
+//   PPS_STATE_MISCONFIGURED = 12; // PPS is not properly configured for the activity
+// }
+
+// // PPS Information
+// message PPSInfo {
+//   string name = 1; // PPS Name
+//   string version = 2; // PPS Version
+// }
+
+// // PerformPathPlanning() response: provide the generated path plan and status for each planned activity
+// message AppServicePerformPathPlanningResponse {
+//   // Generated Path Plan
+//   kubota.autonomous.messages.site.v1.PathPlan path_plan = 1;
+//   // Number of errors from Path Planning Services; 0: no errors
+//   int32 num_errors = 2;
+
+//   message PPSStatus {
+//     // Reference to the activity (from ActivitySettings or the work plan)
+//     kubota.autonomous.messages.common.v1.ItemIdName activity_id = 1;
+//     // PP Service State
+//     PPSState pps_state = 2;
+//     // PP Service: True when a path was generated successfully
+//     bool success = 3;
+//     // PP Service message (status, error, ...)
+//     string message = 4;
+//     // Warnings on specific points of the generated path
+//     repeated kubota.autonomous.messages.common.v1.PointMessage path_vertix_warnings = 9;
+
+//     // PP Service number of vertices generated (0 in case of errors or when activity is skipped)
+//     int32 num_vertices = 5;
+//     // Index of first vertex in the path plan for the work item, -1 if no vertex was generated
+//     int32 start_vertex = 6;
+//     // Index of last vertex in the path plan for the work item, -1 if no vertex was generated
+//     int32 end_vertex = 7;
+//     // Name and version of the PPS used to generate that activity path
+//     PPSInfo pps_info = 10;
+//   }
+//   // Status for each of the work plan items of the work plan
+//   repeated PPSStatus statuses = 3;
+// }
+
+// // MissionReset() request: mission and machine ID
+// message AppServiceMissionResetRequest {
+//   string mission_id = 1; // The mission to reset
+//   string machine_id = 2; // The machine for which the mission shall be reset
+// }
+
+// // MissionReset() response:
+// message AppServiceMissionResetResponse {
+// }
+
+// // MissionNotify() request: mission and notification name
+// message AppServiceMissionNotifyRequest {
+//   string mission_id = 1; // The mission for which a notification needs to be sent
+//   repeated kubota.autonomous.messages.mission.v1.MissionNotification notifications = 2; // App notifications
+// }
+
+// // MissionNotify() response:
+// message AppServiceMissionNotifyResponse {
+//   bool success = 1; // True when the notification can be sent
+//   string error = 2; // Error message in case the notification cannot be sent
+// }
+
+
+// // PerformSwathLayout() request: Request the server to layout swaths over a zone from a reference AB Line
+// message AppServicePerformSwathLayoutRequest {
+//   /*
+//    * Swath Planner activity: id, name, settings (definitions and values)
+//    *
+//    * The activity settings are expected to contain:
+//    *    - double headland offset in meters
+//    *    - double working width in meters
+//    *    - enum headland direction (CW, CCW)
+//    */
+//   kubota.autonomous.messages.work_plan.v1.ActivitySettings activity = 1;
+//   // The ID/Name of the zone to layout; the zone type shall be Boundary or Activity
+//   kubota.autonomous.messages.common.v1.ItemIdName zone_id = 2;
+//   // The ID/Name of the reference line (AB Line)
+//   kubota.autonomous.messages.common.v1.ItemIdName line_id = 3;
+// }
+
+// // PerformSwathLayout() response: provide the generated layout of swaths over a zone
+// message AppServicePerformSwathLayoutResponse {
+//   PPSInfo pps_info = 1; // PPS name and version
+//   PPSState pps_state = 2; // PPS State for the request
+//   string message = 3; // PPS Message for the request
+//   repeated kubota.autonomous.messages.common.v1.Swath swaths = 4; // PPS generated Swath Layout
+//   repeated kubota.autonomous.messages.common.v1.HeadlandPass headland_passes = 5; // PPS generated Headland passes
+// }

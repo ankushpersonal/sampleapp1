@@ -1,0 +1,39 @@
+{
+  "name": "@ngx-grpc/worker-client",
+  "description": "Angular gRPC framework: worker client package",
+  "author": "smnbbrv",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ngx-grpc/ngx-grpc"
+  },
+  "peerDependencies": {
+    "@ngx-grpc/common": ">=0.2.0",
+    "@ngx-grpc/worker": ">=0.2.0",
+    "@angular/core": ">=12.0.0",
+    "rxjs": ">=6.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
+  "module": "fesm2015/ngx-grpc-worker-client.mjs",
+  "es2020": "fesm2020/ngx-grpc-worker-client.mjs",
+  "esm2020": "esm2020/ngx-grpc-worker-client.mjs",
+  "fesm2020": "fesm2020/ngx-grpc-worker-client.mjs",
+  "fesm2015": "fesm2015/ngx-grpc-worker-client.mjs",
+  "typings": "ngx-grpc-worker-client.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./ngx-grpc-worker-client.d.ts",
+      "esm2020": "./esm2020/ngx-grpc-worker-client.mjs",
+      "es2020": "./fesm2020/ngx-grpc-worker-client.mjs",
+      "es2015": "./fesm2015/ngx-grpc-worker-client.mjs",
+      "node": "./fesm2015/ngx-grpc-worker-client.mjs",
+      "default": "./fesm2020/ngx-grpc-worker-client.mjs"
+    }
+  },
+  "sideEffects": false
+}

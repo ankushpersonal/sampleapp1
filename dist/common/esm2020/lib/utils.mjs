@@ -1,0 +1,12 @@
+/**
+ * Converts Uint8Array to string as prescribed by protobuf bytes toJSON definition
+ * Inspired by https://stackoverflow.com/a/9458996/1990451
+ */
+export function uint8ArrayToBase64(array) {
+    let res = '';
+    for (let i = 0; i < array.byteLength; i++) {
+        res += String.fromCharCode(array[i]);
+    }
+    return window.btoa(res);
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidXRpbHMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi9wYWNrYWdlcy9jb21tb24vc3JjL2xpYi91dGlscy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7O0dBR0c7QUFDSCxNQUFNLFVBQVUsa0JBQWtCLENBQUMsS0FBaUI7SUFDbEQsSUFBSSxHQUFHLEdBQUcsRUFBRSxDQUFDO0lBRWIsS0FBSyxJQUFJLENBQUMsR0FBRyxDQUFDLEVBQUUsQ0FBQyxHQUFHLEtBQUssQ0FBQyxVQUFVLEVBQUUsQ0FBQyxFQUFFLEVBQUU7UUFDekMsR0FBRyxJQUFJLE1BQU0sQ0FBQyxZQUFZLENBQUMsS0FBSyxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUM7S0FDdEM7SUFFRCxPQUFPLE1BQU0sQ0FBQyxJQUFJLENBQUMsR0FBRyxDQUFDLENBQUM7QUFDMUIsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQ29udmVydHMgVWludDhBcnJheSB0byBzdHJpbmcgYXMgcHJlc2NyaWJlZCBieSBwcm90b2J1ZiBieXRlcyB0b0pTT04gZGVmaW5pdGlvblxuICogSW5zcGlyZWQgYnkgaHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9hLzk0NTg5OTYvMTk5MDQ1MVxuICovXG5leHBvcnQgZnVuY3Rpb24gdWludDhBcnJheVRvQmFzZTY0KGFycmF5OiBVaW50OEFycmF5KTogc3RyaW5nIHtcbiAgbGV0IHJlcyA9ICcnO1xuXG4gIGZvciAobGV0IGkgPSAwOyBpIDwgYXJyYXkuYnl0ZUxlbmd0aDsgaSsrKSB7XG4gICAgcmVzICs9IFN0cmluZy5mcm9tQ2hhckNvZGUoYXJyYXlbaV0pO1xuICB9XG5cbiAgcmV0dXJuIHdpbmRvdy5idG9hKHJlcyk7XG59XG4iXX0=

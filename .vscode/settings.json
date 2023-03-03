@@ -1,0 +1,8 @@
+{
+    "protobuf.compile": {
+      "protoPath": ["${workspaceFolder}/protos"],
+      "outputPath": "${workspaceFolder}/generated",
+      "plugin": ["grpc", "typescript"],
+      "pluginPath": ["${env.PATH}"]
+    }
+  }

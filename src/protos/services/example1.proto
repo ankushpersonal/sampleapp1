@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package services.example1;
+
+// import "messages/example2.proto";
+
+message Person {
+  string name = 1;
+  int32 age = 2;
+  // messages.example2.Address address = 3;
+}
